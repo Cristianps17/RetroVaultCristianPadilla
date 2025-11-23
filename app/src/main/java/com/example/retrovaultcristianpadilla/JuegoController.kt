@@ -5,9 +5,9 @@ class JuegoController {
     private val _juegos = mutableListOf(
         JuegoRetro("Super Mario Bros.", "NES", "Plataformas", 1985, "https://upload.wikimedia.org/wikipedia/en/0/03/Super_Mario_Bros._box.png"),
         JuegoRetro("The Legend of Zelda", "NES", "Aventura", 1986, "https://upload.wikimedia.org/wikipedia/en/4/41/Legend_of_zelda_cover_%28with_cartridge%29_gold.png"),
-        JuegoRetro("Sonic the Hedgehog", "Sega Genesis", "Plataformas", 1991, "https://upload.wikimedia.org/wikipedia/en/b/b4/Sonic_the_Hedgehog_1_Genesis_box_art.jpg"),
-        JuegoRetro("Street Fighter II", "Arcade", "Lucha", 1991, "https://upload.wikimedia.org/wikipedia/en/1/1d/Street_Fighter_II_The_World_Warrior_flyer.png"),
-        JuegoRetro("Chrono Trigger", "SNES", "RPG", 1995, "https://upload.wikimedia.org/wikipedia/en/a/a7/Chrono_Trigger_Box_Art.jpg")
+        JuegoRetro("Sonic the Hedgehog", "Sega Genesis", "Plataformas", 1991, "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Sonic_The_Hedgehog.svg/500px-Sonic_The_Hedgehog.svg.png"),
+        JuegoRetro("Street Fighter II", "Arcade", "Lucha", 1991, "https://static.wikia.nocookie.net/noob/images/e/e5/Street_Fighter_II_logotipo.png/revision/latest?cb=20160217005029&path-prefix=es"),
+        JuegoRetro("Chrono Trigger", "SNES", "RPG", 1995, "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/613830/header.jpg?t=1719545360")
     )
     val juegos: List<JuegoRetro>
         get() = _juegos.toList()
