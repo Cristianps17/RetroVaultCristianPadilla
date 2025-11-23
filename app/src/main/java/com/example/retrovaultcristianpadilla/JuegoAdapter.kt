@@ -2,6 +2,7 @@ package com.example.retrovaultcristianpadilla
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -9,6 +10,7 @@ import com.bumptech.glide.Glide
 import com.example.retrovaultcristianpadilla.databinding.ItemJuegoBinding
 
 class JuegoAdapter(
+    private val onEdit: (JuegoRetro) -> Unit,
     private val onDelete: (JuegoRetro) -> Unit
 ) : ListAdapter<JuegoRetro, JuegoAdapter.JuegoViewHolder>(JuegoDiffCallback()) {
 
@@ -32,6 +34,10 @@ class JuegoAdapter(
                 .load(juego.imagenUrl)
                 .into(binding.imagenJuego)
 
+            binding.botonEditar.setOnClickListener {
+                onEdit(juego)
+            }
+            
             binding.botonBorrar.setOnClickListener {
                 onDelete(juego)
             }
