@@ -2,14 +2,15 @@ package com.example.retrovaultcristianpadilla
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.retrovaultcristianpadilla.databinding.ItemJuegoBinding
 
 class JuegoAdapter(
-    private var juegos: MutableList<JuegoRetro>,
     private val onDelete: (JuegoRetro) -> Unit
-) : RecyclerView.Adapter<JuegoAdapter.JuegoViewHolder>() {
+) : ListAdapter<JuegoRetro, JuegoAdapter.JuegoViewHolder>(JuegoDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): JuegoViewHolder {
         val binding = ItemJuegoBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -17,15 +18,7 @@ class JuegoAdapter(
     }
 
     override fun onBindViewHolder(holder: JuegoViewHolder, position: Int) {
-        holder.bind(juegos[position])
-    }
-
-    override fun getItemCount(): Int = juegos.size
-
-    fun updateData(newJuegos: List<JuegoRetro>) {
-        juegos.clear()
-        juegos.addAll(newJuegos)
-        notifyDataSetChanged()
+        holder.bind(getItem(position))
     }
 
     inner class JuegoViewHolder(private val binding: ItemJuegoBinding) : RecyclerView.ViewHolder(binding.root) {
@@ -43,5 +36,15 @@ class JuegoAdapter(
                 onDelete(juego)
             }
         }
+    }
+}
+
+class JuegoDiffCallback : DiffUtil.ItemCallback<JuegoRetro>() {
+    override fun areItemsTheSame(oldItem: JuegoRetro, newItem: JuegoRetro): Boolean {
+        return oldItem.nombre == newItem.nombre // Assuming name is a unique identifier
+    }
+
+    override fun areContentsTheSame(oldItem: JuegoRetro, newItem: JuegoRetro): Boolean {
+        return oldItem == newItem
     }
 }

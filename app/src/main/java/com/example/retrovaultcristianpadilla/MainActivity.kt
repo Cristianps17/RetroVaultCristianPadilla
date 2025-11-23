@@ -17,6 +17,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setupRecyclerView()
+        updateJuegos()
 
         binding.fab.setOnClickListener {
             // Lógica para añadir un nuevo juego
@@ -24,11 +25,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupRecyclerView() {
-        adapter = JuegoAdapter(juegoController.getJuegos()) { juego ->
+        adapter = JuegoAdapter { juego ->
             juegoController.borrarJuego(juego)
-            adapter.updateData(juegoController.getJuegos())
+            updateJuegos()
         }
         binding.recyclerView.adapter = adapter
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
+    }
+
+    private fun updateJuegos() {
+        adapter.submitList(juegoController.juegos)
     }
 }
