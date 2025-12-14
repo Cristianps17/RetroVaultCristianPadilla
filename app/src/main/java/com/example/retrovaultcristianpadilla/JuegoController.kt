@@ -15,4 +15,15 @@ class JuegoController {
     fun borrarJuego(juego: JuegoRetro) {
         _juegos.remove(juego)
     }
+
+    fun agregarJuego(juego: JuegoRetro) {
+        _juegos.add(juego)
+    }
+
+    fun editarJuego(juegoOriginal: JuegoRetro, juegoNuevo: JuegoRetro) {
+        val index = _juegos.indexOf(juegoOriginal)
+        if (index != -1) {
+            _juegos[index] = juegoNuevo
+        }
+    }
 }

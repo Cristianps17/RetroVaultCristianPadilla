@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/edit_nombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nombre" />
+
+    <EditText
+        android:id="@+id/edit_plataforma"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Plataforma" />
+
+    <EditText
+        android:id="@+id/edit_genero"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Género" />
+
+    <EditText
+        android:id="@+id/edit_anio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Año"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/edit_imagen_url"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="URL de la imagen" />
+
+</LinearLayout>
